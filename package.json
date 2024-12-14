@@ -4,24 +4,35 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev-frontend": "vite --host \"192.168.8.50\"",
+    "dev-backend": "tsx watch --clear-screen=false server/server.ts",
+    "dev": "concurrently --kill-others \"npm run dev-frontend\" \"npm run dev-backend\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.9",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.4",
     "@eslint/js": "^9.15.0",
+    "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.97",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "dotenv": "^16.4.7",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
+    "tsx": "^4.19.2",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0",
     "vite": "^6.0.1"
